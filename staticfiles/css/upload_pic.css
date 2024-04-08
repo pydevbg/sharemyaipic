@@ -1,0 +1,52 @@
+/* Style for form container */
+.image-form-container {
+    max-width: 500px;
+    margin: auto;
+    padding: 10px;
+    border: 1px solid #fc6036;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+h1 {
+    padding-bottom: 5px;
+}
+/* Style for form fields */
+.image-form-field {
+    margin-bottom: 20px;
+}
+
+/* Style for form labels */
+.image-form-label {
+    font-weight: bold;
+}
+
+/* Style for form input fields */
+.image-form-input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Style for submit button */
+.image-form-submit {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Style for submit button on hover */
+.image-form-submit:hover {
+    background-color: #45a049;
+}
+
+/* Style for error messages */
+.image-form-error {
+    color: red;
+    margin-top: 5px;
+    font-size: 14px;
+}

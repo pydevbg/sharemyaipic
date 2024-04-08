@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load placeholders %}
+{% block main_content %}
+
+          <div class="heroContainer home-hero1">
+
+                     
+              <div class="image-detail">
+                          {% if image.title %}
+                            <h2>{{ image.title }}</h2>
+                           {% endif %}   
+                            <img class = 'images' src="{{ image.image_file.url }}" alt="{{ image.title }}">
+                          {% if image.generation_description %}
+                            <p>{{ image.generation_description }}</p>
+                          {% endif %}
+                            <p>Uploaded by: {{ image.user.username }}</p>
+                            <p>Uploaded at: {{ image.created_at }}</p>
+                            {% if request.user == image.user %}
+                                <a href="{% url 'edit pic' pk=image.pk %}" class="button-pic">Edit</a>
+                                <a href="{% url 'delete pic' pk=image.pk %}" class="button-pic">Delete</a>
+                            {% endif %}
+
+              </div>
+           </div>
+
+          {% endblock %}

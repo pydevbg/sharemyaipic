@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load placeholders %}
+
+
+{% block main_content %}
+        <div class="home-hero">
+          <div class="heroContainer home-hero1">
+            <div class="home-container1">
+                  <div class="container">
+                      <div class="user-profile">
+                        {% if object.profile_pic %}
+                          <img src="{{ object.profile_pic.url }}" class="avatar" alt="avatar">
+                        {% endif %}
+                          <h3 class="details-h3">Username: {{ user.username}}</h3>
+                          {% if object.full_name %}
+                             <h3 class="names">Full Name: {{ object.full_name }}</h3>
+                          {% endif %}
+                          {% if object.email %}
+                             <h3 class="names">Email: {{ object.email }}</h3>
+                          {% endif %}
+                      
+                        {% if object.date_of_birth %}
+                             <h3 class="names">{{ object.date_of_birth   }}</h3>
+                          {% endif %}
+                          
+                          <div class="stats">
+                            <div>
+                              <h3><strong>Number of image posts: {{ image_count }}</strong> </h3>
+                            </div>
+                            <div>  
+                              <strong>456</strong> followers
+                            </div> 
+                          </div>
+                          
+                          <p class="details-p">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porta dolor ut sapien molestie lacinia. 
+                          </p>
+                            
+                                <a href="{% url 'edit profile' pk=object.pk%}" class="buttonFilled">Edit Profile</a>
+                                <a href="{% url 'delete profile' pk=object.pk %}" class="buttonFilled">Delete Profile</a>
+                           
+                        </div>
+
+
+
+
+                        </div>
+                      </div>
+                      </div>
+
+
+                </div>
+      
+{% endblock %}

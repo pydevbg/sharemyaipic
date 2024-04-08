@@ -1,0 +1,53 @@
+.edit-form-container {
+    max-width: 500px;
+    margin: 0 auto;
+    border: #FC6036;
+}
+.h1-edit {
+    margin-left: 150px;
+    margin-right: 185px;
+    border: #FC6036;
+    background-color: #fc6036;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.edit-form {
+    padding: 20px;
+    border: 3px solid #fc6036;
+    border-radius: 5px;
+    background-color: #1a1a1a;
+}
+
+.edit-form label {
+    font-weight: bold;
+}
+
+.edit-form input[type="text"],
+.edit-form textarea {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+.edit-form input[type="submit"] {
+    background-color: #4CAF50;
+    color: #fc6036;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.edit-form input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.edit-form input[type="submit"]:focus {
+    outline: none;
+}

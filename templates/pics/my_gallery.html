@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block main_content %}
+        <div class="home-hero">
+          <div class="heroContainer home-hero1">
+            <div class="home-container1">
+              <h1 class="home-hero-heading heading1">
+                 {{ username }}'s AI Generated Images
+              </h1>
+              <span class="home-hero-sub-heading bodyLarge">
+                <span>
+                  <span>
+                    <span>
+                      Explore your gallery
+                    </span>
+                    <span></span>
+                  </span>
+                  <span>
+                    <span></span>
+                    <span></span>
+                  </span>
+                </span>
+                <span>
+                  <span>
+                    <span></span>
+                    <span></span>
+                  </span>
+                  <span>
+                    <span></span>
+                    <span></span>
+                  </span>
+                </span>
+              </span>
+                
+              <div class="home-btn-group">
+                  {% if not request.user.is_authenticated %}
+                        <button class="buttonFilled">Get Started</button>
+                        <button class="buttonFlat">Learn More&nbsp;→</button>
+               {% endif %}   
+              </div>
+            </div>
+          </div>
+        </div>
+    
+        <div class="home-gallery">
+       
+            {% for image in images %}
+             
+          <div class="gallery-card1-gallery-card gallery-card1-root-class-name">
+             <a class="gallery-card1-gallery-card gallery-card1-root-class-name" href="{% url 'details pic' image.id %}">
+            <img
+              alt="image"
+              src="{{ image.image_file.url }}"
+              class="gallery-card1-image"
+               style="height: 600px;"
+            />
+              
+            <h2 class="gallery-card1-text"><span>Project Title</span></h2>
+            <span class="gallery-card1-text1">
+              <span>Lorem ipsum dolor sit amet</span>
+            </span>
+                 </a> 
+          </div>
+                
+         {% endfor %}
+        
+ 
+    
+    
+      
+    
+{% endblock %}

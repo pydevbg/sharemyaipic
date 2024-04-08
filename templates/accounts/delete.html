@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load placeholders %}
+{% block main_content %}
+        <div class="home-hero">
+          <div class="heroContainer home-hero1">
+            <div class="home-container1">
+                  <div class="container">
+                      <div class="login-div">
+                        <div class="login-box">
+                            <h1>Delete Profile</h1>
+                            <h2>Are you sure you want to delete your profile?</h2>
+                            
+                            
+                            <form id='delete' action="{% url 'delete profile' pk=object.pk%}" method="post">
+                                
+                                 
+                                 
+                                <button type="submit" class="button">Confirm</button>
+                                {% csrf_token %}
+                            </form>
+
+
+
+
+                        </div>
+                      </div>
+                      </div>
+                </div>
+              </div>
+        </div>
+{% endblock %}

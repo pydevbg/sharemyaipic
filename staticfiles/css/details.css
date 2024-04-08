@@ -1,0 +1,28 @@
+    .user-profile {
+      width: 700px;
+      border: 3px solid #fc6036;
+      padding: 20px;
+      border-radius: 10px;
+
+    }
+
+    .avatar {
+      width: 100px;
+      border-radius: 10%;
+    }
+
+    .details-h3 {
+      margin-top: 5px;
+      margin-bottom: 10px;
+    }
+
+    .details-p{
+
+      margin-bottom: 15px;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+    }

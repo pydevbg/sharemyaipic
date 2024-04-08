@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load placeholders %}
+{% block main_content %}
+        <div class="home-hero">
+          <div class="heroContainer home-hero1">
+            <div class="home-container1">
+                  <div class="container">
+                      <div class="login-div">
+                        <div class="login-box">
+                            <h1>Edit Profile</h1>
+                            <form action="{% url 'edit profile' pk=object.pk %} " method="POST" enctype="multipart/form-data">
+                                
+                                <p>
+                                    {{ form}}
+                    
+                    
+                                 </p>
+                                 
+                                 
+                                <button type="submit" class="button">Confirm</button>
+                                {% csrf_token %}
+                            </form>
+
+
+
+
+                        </div>
+                      </div>
+                      </div>
+                </div>
+              </div>
+        </div>
+{% endblock %}

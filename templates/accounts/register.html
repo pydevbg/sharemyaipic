@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load placeholders %}
+{% block main_content %}
+        <div class="home-hero">
+          <div class="heroContainer home-hero1">
+            <div class="home-container1">
+                  <div class="container">
+                      <div class="login-div">
+                        <div class="login-box">
+                            <h1>REGISTER</h1>
+                            <form action="{% url 'register' %}" method="POST">
+                                
+                                <p>
+                                    {{ form.username|placeholders:"Username" }}
+                    
+                    
+                                 </p>
+                                  <p>
+                                    {{ form.password1|placeholders:"Password" }}
+                                    
+                                    
+                                </p>        
+                                <p>
+                                    {{ form.password2|placeholders:"Repeat Password" }}
+                                    
+                                    
+                                </p>    
+                                <button type="submit" class="button">Register</button>
+                                {% csrf_token %}
+                            </form>
+
+
+
+
+                        </div>
+                      </div>
+                      </div>
+                </div>
+              </div>
+        </div>
+{% endblock %}
