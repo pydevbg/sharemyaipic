@@ -1,33 +1,25 @@
 {% extends 'base.html' %}
 {% load placeholders %}
 {% block main_content %}
-        
-          <div class="heroContainer home-hero1">
-           
-                  <div class="container">
-                      <div class="edit-form-container">
-                          <div class="edit-form">
-                        
-                            <h1 class="h1-edit">Edit Pic</h1>
-                            <form action="{% url 'edit pic' pk=object.pk %}" method="POST" enctype="multipart/form-data">
-                                
-                                <p>
-                                    {{ form}}
-                    
-                    
-                                 </p>
-                                 
-                                 
-                                <button type="submit" class="button">Confirm</button>
-                                {% csrf_token %}
-                            </form>
-
-
-
-
-                        </div>
-                      </div>
-                      </div>
-                </div>
-      
+<div class="heroContainer home-hero1">
+    <div class="container">
+        <div class="edit-form-container">
+            <div class="edit-form">
+                <h1 class="h1-edit">Edit Pic</h1>
+                <form action="{% url 'edit pic' pk=object.pk %}" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <p>
+                        {{ form.title|placeholders:"Title" }}
+                        {{ form.image_file|placeholders:"Image File" }}
+                        {{ form.generation_description|placeholders:"Generation Description" }}
+                    </p>
+                 
+                       
+                   
+                    <button type="submit" class="button">Confirm</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

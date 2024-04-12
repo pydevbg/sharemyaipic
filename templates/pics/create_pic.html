@@ -1,34 +1,27 @@
 {% extends 'base.html' %}
 {% load placeholders %}
 {% block main_content %}
-        <div class="home-hero">
-          <div class="heroContainer home-hero1">
+    <div class="home-hero">
+        <div class="heroContainer home-hero1">
             <div class="home-container1">
-                  <div class="container">
-                      <div class="login-div">
+                <div class="container">
+                    <div class="login-div">
                         <div class="image-form-container">
                             <h1>Upload Your Picture</h1>
                             <form action="{% url 'upload pic' %}" method="POST" enctype="multipart/form-data">
-                                
-                                <p>
-                                    {{ form}}
-                    
-                    
-                                 </p>
-                                
-                                    
-                                 
-                                <button type="submit" class="image-form-submit ">Upload</button>
                                 {% csrf_token %}
+                                {{ form.as_p }}
+                                <div class="tag-form-container">
+                                    <h3>Add a Tag</h3>
+                                    {{ tag_form.as_p }}
+                                    <button type="submit" class="tag-form-submit">Add Tag</button>
+                                </div>
+                                <button type="submit" class="image-form-submit">Upload</button>
                             </form>
-
-
-
-
                         </div>
-                      </div>
-                      </div>
+                    </div>
                 </div>
-              </div>
+            </div>
         </div>
+    </div>
 {% endblock %}

@@ -19,7 +19,13 @@
                                 <a href="{% url 'edit pic' pk=image.pk %}" class="button-pic">Edit</a>
                                 <a href="{% url 'delete pic' pk=image.pk %}" class="button-pic">Delete</a>
                             {% endif %}
-
+                   <div class="tags">
+            <h3 class="h3-details">Tags:</h3>
+            <ul class="detail-li">
+                {% for tag in tagged_images %}
+                <li >{{ tag.name }}</li>
+                {% endfor %}
+            </ul>
               </div>
            </div>
 

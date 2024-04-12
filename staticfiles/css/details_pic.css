@@ -41,3 +41,31 @@
   transition: 0.5s;
   z-index: 1;
 }
+/* Tags Section */
+.tags {
+  margin-top: 20px;
+}
+
+.h3-details {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.detail-li {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  color: #32e556;
+
+}
+
+.detail-li li {
+  background-color: rgba(50, 229, 229, 0.26);
+  padding: 5px 10px;
+  border-radius: 4px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
