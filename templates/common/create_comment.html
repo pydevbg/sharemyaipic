@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load placeholders %}
+{% block main_content %}
+    <div class="home-hero">
+        <div class="heroContainer home-hero1">
+            <div class="home-container1">
+                <div class="container">
+                    <div class="login-div">
+                        <div class="image-form-container">
+                            <h1>Add Comment</h1>
+                            <form action="{% url 'create comment' pk=image.pk %}" method="POST" enctype="multipart/form-data">
+                                
+                                {{ form.text|placeholders:"Write your comment" }}
+                                
+                                 <button type="submit" class="button">Confirm</button>
+                                {% csrf_token %}
+                                
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

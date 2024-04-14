@@ -1,32 +1,65 @@
 {% extends 'base.html' %}
 {% load placeholders %}
 {% block main_content %}
-
-          <div class="heroContainer home-hero1">
-
-                     
-              <div class="image-detail">
-                          {% if image.title %}
-                            <h2>{{ image.title }}</h2>
-                           {% endif %}   
-                            <img class = 'images' src="{{ image.image_file.url }}" alt="{{ image.title }}">
-                          {% if image.generation_description %}
-                            <p>{{ image.generation_description }}</p>
-                          {% endif %}
-                            <p>Uploaded by: {{ image.user.username }}</p>
-                            <p>Uploaded at: {{ image.created_at }}</p>
-                            {% if request.user == image.user %}
-                                <a href="{% url 'edit pic' pk=image.pk %}" class="button-pic">Edit</a>
-                                <a href="{% url 'delete pic' pk=image.pk %}" class="button-pic">Delete</a>
-                            {% endif %}
-                   <div class="tags">
-            <h3 class="h3-details">Tags:</h3>
-            <ul class="detail-li">
-                {% for tag in tagged_images %}
-                <li >{{ tag.name }}</li>
-                {% endfor %}
-            </ul>
-              </div>
-           </div>
-
-          {% endblock %}
+    <div class="heroContainer home-hero1">
+        <div class="image-detail">
+            {% if image.title %}
+                <h2>{{ image.title }}</h2>
+            {% endif %}
+            <div class="image-container">
+                <img class="images" src="{{ image.image_file.url }}" alt="{{ image.title }}">
+                {% if request.user.is_authenticated %}
+                    <div class="like-container">
+                        <form class="like-form" action="{% url 'details pic' pk=image.pk %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" name="like" class="like-button">
+                                {% if like_count > 0 %}
+                                    <span class="like-count">{{ like_count }}</span>
+                                {% endif %}
+                                <i class="fa-solid fa-heart"></i>
+                            </button>
+                        </form>
+                    </div>
+                {% endif %}
+            </div>
+            {% if image.generation_description %}
+                <p>{{ image.generation_description }}</p>
+            {% endif %}
+            <p>Uploaded by: {{ image.user.username }}</p>
+            <p>Uploaded at: {{ image.created_at }}</p>
+            {% if request.user == image.user %}
+                <a href="{% url 'edit pic' pk=image.pk %}" class="button-pic">Edit</a>
+                <a href="{% url 'delete pic' pk=image.pk %}" class="button-pic">Delete</a>
+            {% endif %}
+            <div class="tags">
+                <h3 class="h3-details">Tags:</h3>
+                <ul class="detail-li">
+                    {% for tag in tagged_images %}
+                        <li>{{ tag.name }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <h3>Comments</h3>
+            {% for comment in image.comments.all %}
+                <div class="comment">
+                    <p>
+                        <b>{{ comment.user.username }}</b><br>
+                    <h5>{{ comment.created_at|timesince }} ago</h5><br>
+                    {{ comment.text }}
+                    </p>
+                </div>
+            {% empty %}
+                <p>No comments yet!</p>
+            {% endfor %}
+            {% if request.user.is_authenticated %}
+                <form method="POST" action="{% url 'create comment' pk=image.pk %}">
+                    {% csrf_token %}
+                    {{ comment_form }}
+                    <input type="submit" value="Add Comment">
+                </form>
+            {% else %}
+                <p>Please <a href="{% url 'login' %}"><b class="b-comment">Login</b></a> to leave a comment.</p>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

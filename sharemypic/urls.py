@@ -22,4 +22,6 @@ urlpatterns = [
     path("", include("sharemypic.web.urls")),
     path("", include("sharemypic.accounts.urls")),
     path("", include("sharemypic.pics.urls")),
+    path("", include("sharemypic.common.urls")),
+
 ]

@@ -35,12 +35,7 @@
 }
 
 /* CSS for the hover effect */
-.images:hover {
 
-  scale: 2;
-  transition: 0.5s;
-  z-index: 1;
-}
 /* Tags Section */
 .tags {
   margin-top: 20px;
@@ -68,4 +63,101 @@
   margin-right: 10px;
   margin-bottom: 10px;
   font-size: 14px;
+}
+
+.comments {
+  margin: 30px 0;
+}
+
+.comments h3 {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+}
+
+.comment {
+  padding: 10px;
+  margin-bottom: 10px;
+  background: #36a3fc;
+  border-radius: 4px;
+}
+
+.comment p {
+  margin: 0;
+  padding: 0;
+}
+
+.comment p b {
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 20px;
+  color: #444;
+}
+
+.comment-date {
+  font-size: 0.8em;
+  color: #999;
+}
+
+.add-comment label,
+.add-comment input,
+.add-comment textarea {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.add-comment label {
+  margin-bottom: 5px;
+}
+
+.add-comment textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.add-comment input[type="submit"] {
+  margin-top: 10px;
+  background: #007bff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 15px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.b-comment {
+  font-size: 20px;
+  color: #14A9FF;
+}
+
+.image-container {
+    position: relative;
+}
+
+.like-container {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+
+.like-button {
+    background-color: transparent;
+    border: none;
+    color: #fc363d;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.like-button:hover {
+    color: #ff00b7; /* Change the color on hover */
+    cursor: pointer;
+}
+
+.like-count {
+    font-size: 15px;
+    color: #fc363d;
+    margin-right: 1px;
+    margin-top: 1.5px;
 }

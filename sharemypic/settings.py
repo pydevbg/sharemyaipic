@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "sharemypic.web.apps.WebConfig",
     "sharemypic.accounts.apps.AccountsConfig",
-    "sharemypic.pics.apps.PicsConfig"
+    "sharemypic.pics.apps.PicsConfig",
+    "sharemypic.common.apps.CommonConfig"
 ]
 
 MIDDLEWARE = [
